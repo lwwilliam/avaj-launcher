@@ -1,5 +1,6 @@
 package aircraft;
 import coordinates.Coordinates;
+import parser.PrintToFile;
 
 public class Baloon extends Aircraft{
     public Baloon(long p_id, String p_name, Coordinates p_coordinate) {
@@ -36,6 +37,7 @@ public class Baloon extends Aircraft{
             message = "landing.";
         }
         this.coordinates = new Coordinates(longitude, latitude, height);
-        System.out.println("Baloon#" + this.name + "(" + this.id + "): " + message);
+        PrintToFile.Write("Baloon#" + this.name + "(" + this.id + "): " + message + "\n");
+        // System.out.println("Baloon#" + this.name + "(" + this.id + "): " + message);
     }
 }

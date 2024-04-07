@@ -15,21 +15,15 @@ public class Tower {
         PrintToFile.Write("Tower says: " + p_flyable + " registered to weather tower.\n");
         observers.add(p_flyable);
     }
-
+    
     public void unregister(Flyable p_flyable) {
-        PrintToFile.Write("Tower says: " + p_flyable + " unregistered from weather tower.\n");
         observers.remove(p_flyable);
     }
 
     public void conditionsChanged() {
-        for (Flyable flyable : observers) {
+        List<Flyable> copyOfObservers = new ArrayList<>(observers);
+        for (Flyable flyable : copyOfObservers) {
             flyable.updateConditions();
         }
     }
-
-    // public void printAllObservers() {
-    //     for (Flyable flyable : observers) {
-    //         System.out.println(flyable);
-    //     }
-    // }
 }

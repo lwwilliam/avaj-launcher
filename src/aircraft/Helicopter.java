@@ -1,5 +1,6 @@
 package aircraft;
 import coordinates.Coordinates;
+import parser.PrintToFile;
 
 public class Helicopter extends Aircraft{
     public Helicopter(long p_id, String p_name, Coordinates p_coordinate) {
@@ -36,6 +37,7 @@ public class Helicopter extends Aircraft{
             message = "landing.";
         }
         this.coordinates = new Coordinates(longitude, latitude, height);
-        System.out.println("Helicopter#" + this.name + "(" + this.id + "): " + message);
+        PrintToFile.Write("Helicopter#" + this.name + "(" + this.id + "): " + message + "\n");
+        // System.out.println("Helicopter#" + this.name + "(" + this.id + "): " + message);
     }
 }

@@ -1,13 +1,13 @@
 package parser;
 import exception.InvalidScenario;
 import factory.AircraftFactory;
-import aircraft.Aircraft;
 import java.util.ArrayList;
+import tower.WeatherTower;
 
 public class Parser {
     private ArrayList<String> nameArr = new ArrayList<>();
 
-    public Aircraft parse(String data)  throws InvalidScenario{
+    public void parse(String data, WeatherTower tower) throws InvalidScenario{
         String[] arrOfStr = data.split(" ");
 
         if (arrOfStr.length != 5)
@@ -25,9 +25,9 @@ public class Parser {
             throw new InvalidScenario();
 
         AircraftFactory aircraftFactory = new AircraftFactory();
-        return(aircraftFactory.newAirCraft(arrOfStr[0], arrOfStr[1], longitude, latitude, height));
-        }
+        aircraftFactory.newAirCraft(arrOfStr[0], arrOfStr[1], longitude, latitude, height).registerTower(tower);
     }
+}
 
 // System.out.println("type :" + arrOfStr[0]);
 // System.out.println("name :" + arrOfStr[1]);

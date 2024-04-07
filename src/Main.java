@@ -5,11 +5,12 @@ import java.io.IOException;
 import java.util.Scanner;
 import exception.InvalidScenario;
 import parser.Parser;
-import tower.Tower;
+import simulation.Simulation;
+import tower.WeatherTower;
 
 public class Main {
     public static void main(String[] args) {
-        Tower tower = new Tower();
+        WeatherTower tower = new WeatherTower();
         try {
             FileWriter myWriter = new FileWriter("simulation.txt", false);
             myWriter.close();
@@ -26,13 +27,14 @@ public class Main {
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
                 try {
-                    tower.register(parser.parse(data));
+                    parser.parse(data, tower);
                 } catch (InvalidScenario e) {
                     e.printStackTrace();
                     break;
                 }
             }
             myReader.close();
+            new Simulation(runTimes, tower);
         } catch (FileNotFoundException e) {
             System.out.println("File not found.");
             e.printStackTrace();
