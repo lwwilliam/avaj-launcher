@@ -19,15 +19,19 @@ public class Baloon extends Aircraft{
                 longitude += 2;
                 height += 4;
                 message = "Sunny weather for baloon!";
+                break;
             case "RAIN":
                 height -= 5;
                 message = "Rainny weather for baloon!";
+                break;
             case "FOG":
                 height -= 3;
                 message = "Foggy weather for baloon!";
+                break;
             case "SNOW":
                 height -= 15;
                 message = "Snowy weather for baloon!";
+                break;
         }
         if (height > 100)
             height = 100;

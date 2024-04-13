@@ -1,5 +1,6 @@
 package weatherprovider;
 import coordinates.Coordinates;
+import java.util.Random;
 
 public class WeatherProvider {
     private static String[] weather = {"RAIN", "FOG", "SUN", "SNOW"};
@@ -17,6 +18,8 @@ public class WeatherProvider {
 
     public String getCurrentWeather(Coordinates coordinates) {
         int index = coordinates.getLongitude() + coordinates.getLatitude() + coordinates.getHeight();
+        index += new Random().nextInt(100);
+
         return weather[index % 4];
     }
 }

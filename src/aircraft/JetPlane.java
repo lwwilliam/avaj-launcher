@@ -19,15 +19,19 @@ public class JetPlane extends Aircraft{
                 latitude += 10;
                 height += 2;
                 message = "Sunny weather for jetplane!";
+                break;
             case "RAIN":
                 latitude += 5;
                 message = "Rainny weather for jetplane!";
+                break;
             case "FOG":
                 latitude += 1;
                 message = "Foggy weather for jetplane!";
+                break;
             case "SNOW":
                 height -= 7;
                 message = "Snowy weather for jetplane!";
+                break;
         }
         if (height > 100)
             height = 100;

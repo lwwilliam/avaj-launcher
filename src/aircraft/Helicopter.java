@@ -19,15 +19,19 @@ public class Helicopter extends Aircraft{
                 longitude += 10;
                 height += 2;
                 message = "Sunny weather for helicopter!";
+                break;
             case "RAIN":
                 longitude += 5;
                 message = "Rainny weather for helicopter!";
+                break;
             case "FOG":
                 longitude += 1;
                 message = "Foggy weather for helicopter!";
+                break;
             case "SNOW":
                 height -= 12;
                 message = "Snowy weather for helicopter!";
+                break;
         }
         if (height > 100)
             height = 100;
