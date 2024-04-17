@@ -27,5 +27,7 @@ run:
 clean:
 	@echo "$(RED)Cleaning project...$(END)"
 	rm -rf $(CLASSFILE_PATH)
+	rm simulation.txt
+	rm sources.txt
 
 re: clean compile run
