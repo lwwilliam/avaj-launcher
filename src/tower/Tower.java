@@ -20,7 +20,7 @@ public class Tower {
         observers.remove(p_flyable);
     }
 
-    public void conditionsChanged() {
+    protected void conditionsChanged() {
         List<Flyable> copyOfObservers = new ArrayList<>(observers);
         for (Flyable flyable : copyOfObservers) {
             flyable.updateConditions();
